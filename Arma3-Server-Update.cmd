@@ -4,7 +4,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 	:: DEFINE the following variables where applicable to your install
 
-	SET STEAMLOGIN=packet_loss_server w8r9-2Fd
+	SET STEAMLOGIN=
 	SET serverID=233780 -beta
 
 	SET serverPath=C:\Servers\Arma3
