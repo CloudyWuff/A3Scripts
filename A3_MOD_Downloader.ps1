@@ -76,8 +76,14 @@ foreach ($mod in $mods) {
 		# Copy bikey file to server's keys folder
 		$keysource = Join-Path -Path $modslocation -ChildPath $mod[0].modID
 		$keydest = Join-Path -Path $a3folder -ChildPath "keys"
-		$bikeypath = Get-ChildItem -Path $keysource -Recurse -Filter *.bikey
-		Copy-Item -Path $bikeypath.FullName -Destination $keydest
+		# Only Copy the key if it doesn't already exist (This can happen if multiple mods of the same creator are downloaded)
+		if (!($keydest)) {
+
+			$bikeypath = Get-ChildItem -Path $keysource -Recurse -Filter *.bikey
+			Copy-Item -Path $bikeypath.FullName -Destination $keydest
+
+		}
+
 	}
 
 }
